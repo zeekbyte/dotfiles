@@ -1,0 +1,96 @@
+" vim settings
+set scrolloff=5
+set history=1000
+
+" share clipboard
+set clipboard+=unnamedplus
+
+"status bar
+set showmode
+
+" leader
+map <space> <nop>
+let mapleader="\<space>"
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+" Run
+nmap <leader>rc <Action>(ContextRun)
+nmap <leader>rx<Action>(chooseRunConfiguration)
+nmap <leader>rr <Action>(Rerun)
+nmap <leader>rt <Action>(RunTests)
+nmap <leader>rs <Action>(Stop)
+
+" refactor
+nmap <leader>oi <Action>(OptimizeImports)
+
+" surround (bundle plugin)
+" usage: https://github.com/tpope/vim-surround
+set surround
+
+" nerdtree (bundle plugin)
+set NERDTree
+map <leader>e :NERDTree<CR>
+":NERDTreeFocus
+":NERDTreeToggle
+"map <C-n>c :NERDTreeClose<CR>
+":NERDTreeFind
+":NERDTreeRefreshRoot
+
+" which key
+set which-key
+" disable the timeout option
+set notimeout
+" increase the timeoutlen (default: 1000), don't add space around the equal sign
+set timeoutlen=5000
+
+" buffer (buffer < window < tab)
+nmap <leader>xx <Action>(CloseContent)
+nmap <leader>xa <Action>(CloseAllEditors)
+nmap <leader>xo <Action>(CloseAllEditorsButActive)
+nmap <leader>xp <Action>(CloseAllUnpinnedEditors)
+
+" window
+nmap <S-Tab> <Action>(PreviousTab)
+nmap <Tab> <Action>(NextTab)
+nmap <leader>p <Action>(PinActiveEditorTab)
+
+" []
+nmap [m <Action>(MethodUp)
+nmap ]m <Action>(MethodDown)
+
+" goto
+nmap gd <Action>(GotoDeclaration)
+nmap gi <Action>(GotoImplementation)
+
+" bookmark
+nmap mm <Action>(ToggleBookmark)
+nmap ms <Action>(ShowBookmarks)
+
+" todo
+nmap <leader>to <Action>(ActivateTODOToolWindow)
+
+" jump-motion (required idea plugin: IdeaVim-EasyMotion, AceJump)
+set easymotion
+"Press `f` to activate AceJump
+map f <Action>(AceAction)
+
+" highlight yank (bundle plugin)
+set highlightedyank
+let g:highlightedyank_highlight_duration = "1000"
+let g:highlightedyank_highlight_color = "rgba(57, 197, 187, 155)"
+
+" zen
+nmap <leader>z <Action>(ToggleZenMode)
+
+" terminal
+nmap <leader>tt <Action>(ActivateTerminalToolWindow)
+nmap <leader>tc <Action>(Terminal.OpenInTerminal)
+
+nnoremap sv :action SplitVertically<CR>
+nnoremap sh :action SplitHorizontally<CR>
+nnoremap sm :action MoveEditorToOppositeTabGroup<CR>
